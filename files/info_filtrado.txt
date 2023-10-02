@@ -1,0 +1,4 @@
+INFO: Application shutdown at 19:32
+INFO: User paid with credit-card
+INFO: Application shutdown at 19:32
+INFO: User paid with credit-card

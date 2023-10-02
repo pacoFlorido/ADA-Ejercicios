@@ -1,0 +1,8 @@
+INFO: Application shutdown at 19:32
+User logged.
+ERROR: error fetching data
+INFO: User paid with credit-card
+INFO: Application shutdown at 19:32
+User logged.
+ERROR: error fetching data
+INFO: User paid with credit-card
