@@ -5,12 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Ejer3 {
     public static void main(String[] args) throws IOException {
         Path json = Path.of("files/students.json");
-        List<Estudiante> students = new ArrayList<>();
+        List<Estudiante> students = new LinkedList<>();
         for (int i = 0; i<50; i++){
             students.add(generarStudent());
         }
@@ -18,14 +19,22 @@ public class Ejer3 {
         List<String> objetosJSON = students.stream()
                 .map(student -> {
                     return "\t{\n\t\t\"name\": \"" + student.getName() + "\",\n\t\t"
-                    + "\"age\": \"" + student.getAge() + "\"\n\t},";
+                    + "\"age\": \"" + student.getAge() + "\"\n\t}";
                 }).toList();
 
         if (!Files.exists(json)){
             Files.createFile(json);
         }
+
+        //Muy poco óptimo pero es lo unico que se me ha ocurrido.
         Files.writeString(json,"[\n");
-        Files.write(json,objetosJSON, StandardOpenOption.APPEND);
+        for (int i = 0; i<objetosJSON.size(); i++){
+            if (i == 49){
+                Files.writeString(json,objetosJSON.get(i) + "\n", StandardOpenOption.APPEND);
+            } else {
+                Files.writeString(json,objetosJSON.get(i) + ",\n", StandardOpenOption.APPEND);
+            }
+        }
         Files.writeString(json,"]",StandardOpenOption.APPEND);
     }
 
