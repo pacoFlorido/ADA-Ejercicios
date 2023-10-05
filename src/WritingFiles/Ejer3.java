@@ -26,7 +26,7 @@ public class Ejer3 {
             Files.createFile(json);
         }
 
-        //Muy poco óptimo pero es lo unico que se me ha ocurrido.
+        //Muy poco óptimo pero es lo que se me ha ocurrido.
         Files.writeString(json,"[\n");
         for (int i = 0; i<objetosJSON.size(); i++){
             if (i == 49){
