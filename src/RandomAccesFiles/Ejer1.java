@@ -24,7 +24,7 @@ public class Ejer1 {
             raf.writeUTF("adios adios adios");
             //El String "adios adios adios" ocupa 19 por lo mismo que el anterior.
             raf.seek(6);
-            System.out.println(raf.readUTF() + raf.getFilePointer());
+            System.out.println(raf.readUTF() + raf.getFilePointer() + " " + raf.length());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
