@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ADA-Ejercicios:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ADA_Ejercicios_jar</output-path>
+    <root id="archive" name="ADA-Ejercicios.jar">
+      <element id="module-output" name="ADA-Ejercicios" />
+      <element id="extracted-dir" path="$USER_HOME$/Descargas/json-20220924.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -6,9 +6,9 @@ import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class Ejer1 {
+public class Ejer2 {
     public static void main(String[] args) {
-        Path path = Path.of("files/RAF/randomAccesFile.txt");
+        Path path = Path.of("files/RAF/randomAccessFile2.txt");
 
         if (!Files.exists(path)){
             try {
@@ -19,12 +19,28 @@ public class Ejer1 {
         }
 
         try (RandomAccessFile raf = new RandomAccessFile(path.toFile(),"rw")){
-            raf.writeUTF("hola");
-            //El String "hola" en este caso ocupa 6 bytes porque el método writeUTF siempre escribe primero dos bytes y luego cada letra ocupará un byte.
-            raf.writeUTF("adios adios adios");
-            //El String "adios adios adios" ocupa 19 por lo mismo que el anterior.
-            raf.seek(6);
-            System.out.println(raf.readUTF() + raf.getFilePointer());
+            //a
+            raf.writeInt(1);
+            raf.writeChar('A');
+            raf.writeDouble(2.3);
+
+            //b
+            raf.seek(0);
+            //c
+            System.out.println(raf.readInt() + " " + raf.readChar() + " " + raf.readDouble());
+
+            //d
+            raf.seek(4);
+            System.out.println(raf.readChar());
+
+            //e
+            raf.seek(raf.length());
+            raf.writeChar('A');
+            raf.writeBoolean(true);
+
+            //f
+            raf.seek(14);
+            System.out.println(raf.readChar());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
