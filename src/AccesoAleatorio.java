@@ -1,5 +1,4 @@
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 
 import java.io.*;
 import java.net.URL;
@@ -25,11 +24,13 @@ public class AccesoAleatorio {
 
         //parseamos un string a un JSONObject
         String jsonString = stream(caturl);
-        JSONObject jo = new JSONObject(jsonString);
+        /*JSONObject jo = new JSONObject(jsonString);
         JSONArray ja =  jo.getJSONArray("data");
         JSONObject jo2 = ja.getJSONObject(1);
         System.out.println(jo2.getString("fact"));
 
 
+
+         */
     }
 }

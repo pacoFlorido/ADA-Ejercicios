@@ -1,7 +1,4 @@
 package WritingFiles;
-
-import java.time.LocalDate;
-
 public class Estudiante {
         private String name;
         private int age;
@@ -23,4 +20,4 @@ public class Estudiante {
         public String toString() {
             return name + "," + age;
         }
-    }
+}
