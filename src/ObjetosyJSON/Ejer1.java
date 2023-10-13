@@ -1,16 +1,14 @@
 package ObjetosyJSON;
 
 import com.google.gson.Gson;
-import org.json.JSONObject;
-
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.time.LocalDate;
 import java.util.List;
 
-class Sede {
+class Sede implements Serializable {
     private String nombre, ubicacion;
     private List<String> carreras;
 
@@ -19,8 +17,17 @@ class Sede {
         this.ubicacion = ubicacion;
         this.carreras = carreras;
     }
+
+    @Override
+    public String toString() {
+        return "Sede{" +
+                "nombre='" + nombre + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", carreras=" + carreras +
+                '}';
+    }
 }
-class Proyecto {
+class Proyecto implements Serializable {
     private String nombre;
     private List<String> equipo;
     private boolean activo;
@@ -32,8 +39,18 @@ class Proyecto {
         this.activo = activo;
         this.presupuesto = presupuesto;
     }
+
+    @Override
+    public String toString() {
+        return "Proyecto{" +
+                "nombre='" + nombre + '\'' +
+                ", equipo=" + equipo +
+                ", activo=" + activo +
+                ", presupuesto=" + presupuesto +
+                '}';
+    }
 }
-class Evento {
+class Evento implements Serializable {
     private List<Conferencia> conferencias;
 
     public Evento(List<Conferencia> conferencias) {
@@ -43,8 +60,15 @@ class Evento {
     public List<Conferencia> getConferencias() {
         return conferencias;
     }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "conferencias=" + conferencias +
+                '}';
+    }
 }
-class Conferencia {
+class Conferencia implements Serializable {
     private String nombre;
     private List<String> ponentes;
     private String fecha;
@@ -53,6 +77,15 @@ class Conferencia {
         this.nombre = nombre;
         this.ponentes = ponentes;
         this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Conferencia{" +
+                "nombre='" + nombre + '\'' +
+                ", ponentes=" + ponentes +
+                ", fecha='" + fecha + '\'' +
+                '}';
     }
 }
 public class Ejer1 {
@@ -97,7 +130,6 @@ public class Ejer1 {
             Files.writeString(path,gson.toJson(proyectos) + ",", StandardOpenOption.APPEND);
             Files.writeString(path,"\n\t\"eventos\":\n", StandardOpenOption.APPEND);
             Files.writeString(path,gson.toJson(eventos) + "\n}", StandardOpenOption.APPEND);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

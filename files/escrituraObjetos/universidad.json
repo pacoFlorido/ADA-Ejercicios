@@ -1,52 +1,8 @@
 {
-  "sede": {
-    "nombre": "Universidad Tecnológica",
-    "ubicacion": "Ciudad Universitaria",
-    "carreras": [
-      "Ingeniería Informática",
-      "Ciencias de la Computación",
-      "Ingeniería Eléctrica"
-    ]
-  },
-  "proyectos": [
-    {
-      "nombre": "Sistema de Gestión Escolar",
-      "equipo": [
-        "Ana Gómez",
-        "Luis Rodríguez",
-        "María Sánchez"
-      ],
-      "activo": true,
-      "presupuesto": 15000
-    },
-    {
-      "nombre": "Investigación en Energías Renovables",
-      "equipo": [
-        "Pedro Martínez",
-        "Laura Fernández"
-      ],
-      "activo": false,
-      "presupuesto": 47000
-    }
-  ],
-  "eventos": {
-    "conferencias": [
-      {
-        "nombre": "Tecnologías Emergentes",
-        "ponentes": [
-          "Dr. Carlos Ramírez",
-          "Dra. Sofia López"
-        ],
-        "fecha": "2023-3-20"
-      },
-      {
-        "nombre": "Innovación en Energías",
-        "ponentes": [
-          "Ing. Marta González",
-          "Dr. Juan Pérez"
-        ],
-        "fecha": "2023-05-10"
-      }
-    ]
-  }
+	"sede":
+{"nombre":"Universidad Tecnológica","ubicacion":"Ciudad Universitaria","carreras":["Ingeniería Informática","Ciencias de la Computación","Ingeniería Eléctrica"]},
+	"proyectos":
+[{"nombre":"Sistema de Gestión Escolar","equipo":["Ana Gómez","Luis Rodríguez","María Sánchez"],"activo":true,"presupuesto":15000},{"nombre":"Investigación en Energías Renovables","equipo":["Pedro Martínez","Laura Fernández"],"activo":false,"presupuesto":47000}],
+	"eventos":
+{"conferencias":[{"nombre":"Tecnologías Emergentes","ponentes":["Dr. Carlos Ramírez","Dra. Sofia López"],"fecha":"2023-3-20"},{"nombre":"Innovación en Energías","ponentes":["Ing. Marta González","Dr. Juan Pérez"],"fecha":"2023-05-10"}]}
 }
