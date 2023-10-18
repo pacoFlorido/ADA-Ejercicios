@@ -3,11 +3,10 @@ package ObjetosyJSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class Ejer3 {
         List<Sede> sedes = new ArrayList<>();
         List<Proyecto> proyectos = new ArrayList<>();
         List<Evento> eventos = new ArrayList<>();
-        List<Conferencia> conferencias = new ArrayList<>();
 
         String jsonString = stream(url);
         JSONArray ja = new JSONArray(jsonString);
@@ -74,7 +72,7 @@ public class Ejer3 {
             }
 
             //Encontrando y asignando los Eventos
-
+            List<Conferencia> conferencias = new ArrayList<>();
             JSONObject joEventos = elementoArray.getJSONObject("eventos");
             JSONArray jaConferencias = joEventos.getJSONArray("conferencias");
 
@@ -95,14 +93,18 @@ public class Ejer3 {
             eventos.add(new Evento(conferencias));
         }
 
-        System.out.println(sedes);
-        System.out.println(proyectos);
-        System.out.println(eventos);
+        Path path = Path.of("result.dat");
+        if (!Files.exists(path)) {
+            try {
+                Files.createFile(path);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
+        List<List<? extends Serializable>> objetos = List.of(sedes,proyectos,eventos);
 
-
-
-
-
+        Ejer2.writeObject(path,objetos);
+        Ejer2.readObject(path);
     }
 }
